@@ -10,6 +10,10 @@ type Adaptee interface {
 	SpecificRequest() string
 }
 
+//-------------------------------------------------------------
+
+var _ Adaptee = (*adapteeImpl)(nil)
+
 // NewAdaptee 是被适配接口的工厂函数
 func NewAdaptee() Adaptee {
 	return &adapteeImpl{}
@@ -22,6 +26,10 @@ type adapteeImpl struct{}
 func (*adapteeImpl) SpecificRequest() string {
 	return "adaptee method"
 }
+
+//-------------------------------------------------------------
+
+var _ Target = (*adapter)(nil)
 
 // NewAdapter 是Adapter的工厂函数
 func NewAdapter(adaptee Adaptee) Target {
