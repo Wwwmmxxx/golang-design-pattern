@@ -1,7 +1,5 @@
 package iterator
 
-import "fmt"
-
 type Aggregate interface {
 	Iterator() Iterator
 }
@@ -50,11 +48,4 @@ func (i *NumbersIterator) Next() interface{} {
 		return next
 	}
 	return nil
-}
-
-func IteratorPrint(i Iterator) {
-	for i.First(); !i.IsDone(); {
-		c := i.Next()
-		fmt.Printf("%#v\n", c)
-	}
 }
