@@ -17,3 +17,10 @@ func ExampleIterator() {
 	// 9
 	// 10
 }
+
+func IteratorPrint(i Iterator) {
+	for i.First(); !i.IsDone(); {
+		c := i.Next()
+		fmt.Printf("%#v\n", c)
+	}
+}
